@@ -1,5 +1,5 @@
 # ubuntu-life
-Quick setup ubuntu
+A collection of tips and tools to make my ubuntu experience even better
 
 
 ## Remove snap
