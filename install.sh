@@ -2,6 +2,9 @@
 
 ######## remove snaps packages ########
 echo "remove snaps packages...."
+
+for snap in $(snap list | awk 'NR>1 {print $1}'); do sudo snap remove "$snap"; done
+
 sudo snap remove firefox
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-42-2204
@@ -35,6 +38,22 @@ sudo rm -rf /var/lib/snapd
 echo "prevent snap from reinstalling..."
 sudo sh -c "echo 'Package: snapd\nPin: release a=*\nPin-Priority: -100' > /etc/apt/preferences.d/nosnap.pref"
 
+######## change color of title buttons
+echo "Change color of title buttons"
+
+cat <<EOF > ~/.config/gtk-4.0/gtk.css
+  headerbar button.close {
+      color: #ff5c5c;
+  }
+  
+  headerbar button.minimize {
+      color: #ffbd44;
+  }
+  
+  headerbar button.maximize {
+      color: #28c840;
+  }
+EOF
 
 ######## update ########
 echo "updating..."
