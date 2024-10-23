@@ -4,10 +4,10 @@ A collection of tips and tools to make my ubuntu experience even better
 
 ## 
 
-#### Remove snap
+#### Remove snap, chage title buttons color
 
 ```
-curl -o- https://raw.githubusercontent.com/mwarevn/ubuntu-life/main/fuck-snap.sh | bash
+curl -o- https://raw.githubusercontent.com/mwarevn/ubuntu-life/main/install.sh | bash
 ```
 
 #### Re-install kernel
