@@ -55,6 +55,27 @@ cat <<EOF > ~/.config/gtk-4.0/gtk.css
   }
 EOF
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+if [[ -e '~/.zshrc' ]]; then
+cat <<EOF >> ~/.zshrc
+
+# Hostname
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment 'white' 'black' "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+  
+# Dir: current working directory
+prompt_dir() {
+  prompt_segment magenta white '%~'
+}
+EOF
+fi
+
+
+
 ######## update ########
 echo "updating..."
 sudo apt update
